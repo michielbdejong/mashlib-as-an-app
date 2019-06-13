@@ -9,5 +9,16 @@
     <div class="TabulatorOutline" id="DummyUUID">
         <table id="outline"></table>
     </div>
-  <script type="text/javascript" src="/mashlib.min.js"></script></body>
+  <script type="text/javascript" src="/mashlib.min.js"></script>
+  <script>
+    var uri = decodeURIComponent(window.location.hash.substring('#resource='.length));
+    window.document.title = uri;
+    var kb = UI.store;
+    var subject = kb.sym(uri);
+    var dom = document;
+    var outliner = panes.getOutliner(dom)
+    outliner.GotoSubject(subject, true, undefined, true, undefined);
+  </script>
+
+  </body>
 </html>
